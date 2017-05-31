@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import Notes from './components/Notes';
+import Note from './components/Note';
 
 const App = () => (
   <div>
@@ -11,6 +12,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/notes" component={Notes} />
+      <Route exact path='/notes/:id' component={Note} />
       <Route component={NoMatch} />
     </Switch>
   </div>
