@@ -48,16 +48,9 @@ export const updateNote = ( id, title, body ) => {
 
 // delete a note
 export const deleteNote = (id) => {
-  return(dispatch) => {
-    return (dispatch) => {
-      fetch(`/api/notes/${id}`, {
-        method: 'DELETE',
-        headers:{
-          'ACCEPT': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      }).then( () => dispatch({ type: 'DELETE_NOTE', id }) )
-    }
+  return (dispatch) => {
+    fetch(`/api/notes/${id}`, {
+      method: 'DELETE'
+    }).then( () => dispatch({ type: 'DELETE_NOTE', id }) )
   }
-
 }

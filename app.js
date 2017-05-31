@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const notes = require('./routes/notes');
-mongoose.connect('mongodb://localhost/change-me');
+mongoose.connect('mongodb://localhost/noteCollection');
 
 const app = express();
 
@@ -21,12 +21,12 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 //POST /api/notes, create route
 //PUT /api/notes, update route
 //DELETE /api/notes, delete route
-//same url, but different routes 
+//same url, but different routes
 
 app.use('/api/notes', notes);
 
 app.get('*', (request, response) => {
-   response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+   response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 module.exports = app;

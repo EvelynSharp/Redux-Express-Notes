@@ -13,7 +13,9 @@ const NoteForm = ({ dispatch }) => {
         ref={ n => form = n }
         onSubmit={ e => {
           e.preventDefault();
-          dispatch(addNote(title.value, body.value))
+          if (title.value){
+            dispatch(addNote(title.value, body.value))
+          }
           form.reset();
         }}
       >
@@ -25,6 +27,6 @@ const NoteForm = ({ dispatch }) => {
   )
 }
 
-// MSTP - grabs state out of store, pass in as a prop 
+// MSTP - grabs state out of store, pass in as a prop
 
 export default connect()(NoteForm);
